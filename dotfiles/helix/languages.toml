@@ -1,0 +1,22 @@
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+
+[[language]]
+name = "bash"
+language-servers = ["bash-language-server"]
+
+[[language]]
+name = "Markdown"
+language-id = "markdown"
+scope = "text.md"
+file-types = ["md", "markdown"]
+comment-token = "#"
+auto-format = true
+
+# Add language server for Markdown
+language-servers = ["markdownlint"]

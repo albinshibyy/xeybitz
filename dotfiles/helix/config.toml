@@ -1,0 +1,127 @@
+# Helix Editor Configuration
+# Place this file at: ~/.config/helix/config.toml
+
+theme = "base16_transparent"
+
+[editor]
+line-number = "absolute"
+mouse = true
+middle-click-paste = true
+scroll-lines = 3
+shell = ["bash", "-c"]
+text-width = 100
+auto-completion = true
+auto-format = true
+auto-save = false
+idle-timeout = 400
+completion-timeout = 250
+preview-completion-insert = true
+completion-trigger-len = 2
+auto-info = true
+true-color = true
+bufferline = "always"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = ["file-type"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = true
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.whitespace]
+render = "all"
+characters = {space = "·", nbsp = "⍽", tab = "→", newline = "⏎"}
+
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.soft-wrap]
+enable = false
+
+# Key mappings
+[keys.normal]
+# Quick save
+C-s = ":w"
+
+# Quick quit
+C-q = ":q"
+
+# Better window navigation
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+
+# File operations
+C-o = ":open"
+C-n = ":new"
+
+# Buffer navigation
+"A-h" = ":bp"
+"A-l" = ":bn"
+"A-w" = ":bc"
+
+# Toggle comments
+"C-/" = "toggle_comments"
+
+# Search and replace
+"/" = "search"
+"?" = "rsearch"
+"n" = "search_next"
+"N" = "search_prev"
+
+[keys.insert]
+# Quick escape
+"j" = { "k" = "normal_mode" } # jk to exit insert mode
+C-c = "normal_mode"
+
+# Save in insert mode
+C-s = ["normal_mode", ":w", "insert_mode"]
+
+[keys.select]
+# Quick escape
+C-c = "normal_mode"

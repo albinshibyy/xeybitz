@@ -1,0 +1,112 @@
+" =============================
+"      All-in-One Vimrc
+" =============================
+
+" Use Vim features, not old Vi
+set nocompatible
+
+" ----------------------------
+" Interface & Navigation
+" ----------------------------
+set number                  " Show line numbers
+set ruler                   " Show cursor position
+set cursorline              " Highlight current line
+set showmode                " Show current mode (e.g., INSERT)
+set showcmd                 " Show incomplete commands
+
+" ----------------------------
+" Indentation & Tabs
+" ----------------------------
+set tabstop=4               " Visual width of tab character
+set shiftwidth=4            " Indent width
+set expandtab               " Use spaces instead of tabs
+set smartindent             " Smart auto-indenting
+set autoindent              " Copy indent from previous line
+
+" ----------------------------
+" Searching
+" ----------------------------
+set incsearch               " Show matches as you type
+set hlsearch                " Highlight all matches
+set ignorecase              " Case-insensitive by default
+set smartcase               " Case-sensitive if uppercase in search
+
+" ----------------------------
+" Clipboard & Mouse
+" ----------------------------
+set clipboard=unnamedplus   " Use system clipboard
+set mouse=a                 " Enable mouse support
+
+" ----------------------------
+" Appearance
+" ----------------------------
+syntax on                   " Enable syntax highlighting
+filetype plugin indent on   " Enable filetype detection and plugins
+set background=dark         " Optimize colors for dark backgrounds
+set termguicolors           " Enable true color (if terminal supports it)
+
+" ----------------------------
+" Editing Behavior
+" ----------------------------
+set backspace=indent,eol,start " More intuitive backspacing
+set wildmenu                    " Enhanced command-line completion
+set history=1000                " Increase history size
+set undofile                    " Enable persistent undo
+set nowrap                      " Don’t wrap long lines
+
+" ----------------------------
+" Splits & Buffers
+" ----------------------------
+set hidden                  " Allow switching buffers without saving
+set splitbelow              " Horizontal splits below
+set splitright              " Vertical splits to the right
+
+" ----------------------------
+" Key Mappings
+" ----------------------------
+
+" System clipboard copy/cut/paste
+nnoremap <C-c> "+yy         " Copy line
+vnoremap <C-c> "+y          " Copy selection
+nnoremap <C-x> "+dd         " Cut line
+vnoremap <C-x> "+d          " Cut selection
+nnoremap <C-v> "+p          " Paste after cursor
+inoremap <C-v> <Esc>"+pa    " Paste in insert mode
+
+" Fast saving
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+
+" Quick quit
+nnoremap <C-q> :q<CR>
+
+" Better window navigation with Ctrl + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Resize splits with Shift + arrow keys
+nnoremap <S-Up>    :resize -2<CR>
+nnoremap <S-Down>  :resize +2<CR>
+nnoremap <S-Left>  :vertical resize -2<CR>
+nnoremap <S-Right> :vertical resize +2<CR>
+
+" ----------------------------
+" Quality of Life
+" ----------------------------
+set confirm                " Prompt on unsaved changes
+set timeoutlen=500         " Faster key mapping timeout
+set scrolloff=5            " Keep 5 lines above/below cursor
+set sidescrolloff=8        " Keep 8 columns left/right of cursor
+
+" ----------------------------
+" Plugins (Optional)
+" ----------------------------
+" Consider using a plugin manager like vim-plug or lazy.nvim
+" Example:
+" call plug#begin('~/.vim/plugged')
+" Plug 'preservim/nerdtree'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'tpope/vim-commentary'
+" call plug#end()
