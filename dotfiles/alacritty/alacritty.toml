@@ -1,0 +1,116 @@
+
+[window]
+dimensions = { columns = 110, lines = 28 }
+dynamic_padding = true
+padding = { x = 10, y = 10 }
+opacity = 0.85
+blur = true
+decorations = "Full"
+startup_mode = "Windowed"  # Or "Maximized" if preferred
+
+[font]
+# JetBrains Mono Nerd Font for icons/glyphs
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size = 10.0
+offset = { x = 0, y = 1 }  # Slight vertical offset for better alignment
+glyph_offset = { x = 0, y = 1 }
+
+[terminal.shell]
+program = "fish"
+
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.normal]
+black   = "#45475a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#cba6f2"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[colors.bright]
+black   = "#585b70"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#cba6f2"
+cyan    = "#94e2d5"
+white   = "#a6adc8"
+
+[colors.dim]
+black   = "#313244"
+red     = "#cc6677"
+green   = "#80b080"
+yellow  = "#d1b082"
+blue    = "#6688cc"
+magenta = "#a177b8"
+cyan    = "#73b0a3"
+white   = "#9396b0"
+
+[colors.cursor]
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+text = "#1e1e2e"  # Dark text for readability
+background = "#f9e2af"  # Yellow for high contrast
+
+[colors.search]
+matches = { foreground = "#1e1e2e", background = "#a6e3a1" }  # Green for matches
+focused_match = { foreground = "#1e1e2e", background = "#f38ba8" }  # Red for focused match
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "0"
+mods = "Control"
+action = "ResetFontSize"
+
+[scrolling]
+history = 10000
+
+[cursor]
+# Cursor style: Block (default), Underline, or Beam
+style = { shape = "Block", blinking = "On" }
+
+# Blink interval in milliseconds (faster = more animated; default 750)
+blink_interval = 500
+
+# Time after which blinking stops (seconds; 0 = never stop)
+blink_timeout = 10
+
+[env]
+TERM = "xterm-256color"  # Ensures compatibility with most tools
+
+# import = ["~/.config/alacritty/themes/catppuccin.yml"]
