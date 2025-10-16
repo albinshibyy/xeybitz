@@ -24,7 +24,7 @@ station wlan0 connect "wifi-name"
 Using Reflector (with backup and reliability tweaks):
 ```bash
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-sudo reflector --country 'United States,India,Singapore'   --latest 20 --protocol https --sort score   --save /etc/pacman.d/mirrorlist
+sudo reflector --country 'United States,India,Singapore' --latest 20 --protocol https --sort score --save /etc/pacman.d/mirrorlist
 ```
 
 ---
@@ -33,7 +33,7 @@ sudo reflector --country 'United States,India,Singapore'   --latest 20 --protoco
 
 ### **Core Tools**
 ```bash
-sudo pacman -S --needed git base-devel fwupd curl rsync wget zip unzip man power-profiles-daemon net-tools dnsutils amd-ucode htop fastfetch partitionmanager vulkan-radeon linux-headers linux-lts linux-lts-headers xdg-desktop-portal-kde flatpak firewalld fish kwalletmanager kdeconnect kcalc filelight
+sudo pacman -S --needed git base-devel fwupd curl rsync wget zip unzip man power-profiles-daemon amd-ucode htop fastfetch partitionmanager vulkan-radeon linux-headers linux-lts linux-lts-headers xdg-desktop-portal-kde flatpak firewalld fish kwalletmanager kdeconnect kcalc filelight
 ```
 
 ### **Development**
@@ -43,7 +43,7 @@ sudo pacman -S --needed go rust zed
 
 ### **Desktop Apps**
 ```bash
-sudo pacman -S --needed okular syncthing kamoso gwenview p7zip unrar virtualbox chromium vlc telegram-desktop timeshift
+sudo pacman -S --needed okular ark syncthing kamoso gwenview p7zip unrar virtualbox chromium vlc telegram-desktop timeshift
 ```
 
 ---
@@ -71,16 +71,40 @@ makepkg -si
 
 ## **Firewalld Setup**
 ```bash
-sudo pacman -S --needed firewalld plasma-firewall
+sudo pacman -S --needed firewalld plasma-firewall python-pyqt6
 sudo systemctl enable --now firewalld
 sudo firewall-cmd --set-default-zone=public
 sudo firewall-cmd --permanent --add-service=dhcpv6-client
 sudo firewall-cmd --reload
 ```
-Enable KDE Plasma applet for firewall management.
+Enable KDE Plasma applet for firewall management | check for applet dependeries.
 
 ---
 
+## **VirtualBox Setup**
+```
+sudo pacman -S virtualbox virtualbox-host-modules-arch
+sudo pacman -S virtualbox-host-dkms
+sudo pacman -S linux-lts-headers
+sudo modprobe vboxdrv
+
+```
+
+---
+## Syncthing Setup
+```
+sudo pacman -Syu --needed syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+systemctl --user status syncthing
+systemctl --user stop syncthing
+http://localhost:8384
+sudo ufw allow 8384/tcp   # If having trouble with firewalld
+
+```
+
+
+---
 ## **Flatpak Apps**
 Add Flathub repo:
 ```bash
@@ -88,7 +112,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 ```
 Install apps:
 ```bash
-flatpak install flathub org.nickvision.tubeconverter io.github.martchus.syncthingtray   io.mrarm.mcpelauncher com.github.gabutakut.gabutdm it.mijorus.gearlever com.usebottles.bottles   com.rtosta.zapzap com.microsoft.Edge org.onlyoffice.desktopeditors org.kde.isoimagewriter
+flatpak install flathub org.nickvision.tubeconverter io.github.martchus.syncthingtray com.usebottles.bottles com.rtosta.zapzap com.microsoft.Edge org.onlyoffice.desktopeditors
 ```
 
 ---
@@ -102,6 +126,7 @@ paru -S --needed brave-bin vscodium-bin ani-cli
 ---
 
 ## **Firmware Updates**
+Plug to charging mode during this
 ```bash
 sudo pacman -S --needed fwupd
 sudo fwupdmgr get-devices
