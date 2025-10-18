@@ -1,9 +1,8 @@
-
 [window]
 dimensions = { columns = 110, lines = 28 }
 dynamic_padding = true
 padding = { x = 10, y = 10 }
-opacity = 0.85
+opacity = 0.75
 blur = true
 decorations = "Full"
 startup_mode = "Windowed"  # Or "Maximized" if preferred
@@ -19,8 +18,11 @@ offset = { x = 0, y = 1 }  # Slight vertical offset for better alignment
 glyph_offset = { x = 0, y = 1 }
 
 [terminal.shell]
-program = "fish"
+program = "/usr/bin/zsh"
 
+# ------------------------------
+# Modern Catppuccin Mocha Colors
+# ------------------------------
 [colors.primary]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
@@ -31,7 +33,7 @@ red     = "#f38ba8"
 green   = "#a6e3a1"
 yellow  = "#f9e2af"
 blue    = "#89b4fa"
-magenta = "#cba6f2"
+magenta = "#cba6f7"
 cyan    = "#94e2d5"
 white   = "#bac2de"
 
@@ -41,31 +43,43 @@ red     = "#f38ba8"
 green   = "#a6e3a1"
 yellow  = "#f9e2af"
 blue    = "#89b4fa"
-magenta = "#cba6f2"
+magenta = "#cba6f7"
 cyan    = "#94e2d5"
 white   = "#a6adc8"
 
 [colors.dim]
 black   = "#313244"
-red     = "#cc6677"
-green   = "#80b080"
-yellow  = "#d1b082"
-blue    = "#6688cc"
-magenta = "#a177b8"
-cyan    = "#73b0a3"
-white   = "#9396b0"
+red     = "#e87497"
+green   = "#8ccf7e"
+yellow  = "#e7c787"
+blue    = "#6aa8fa"
+magenta = "#b68cf7"
+cyan    = "#84d1c5"
+white   = "#9399b2"
 
 [colors.cursor]
 text = "CellBackground"
-cursor = "CellForeground"
+cursor = "#f5c2e7"
 
 [colors.selection]
-text = "#1e1e2e"  # Dark text for readability
-background = "#f9e2af"  # Yellow for high contrast
+text = "#1e1e2e"
+background = "#f5e0dc"
 
 [colors.search]
-matches = { foreground = "#1e1e2e", background = "#a6e3a1" }  # Green for matches
-focused_match = { foreground = "#1e1e2e", background = "#f38ba8" }  # Red for focused match
+matches = { foreground = "#1e1e2e", background = "#a6e3a1" }
+focused_match = { foreground = "#1e1e2e", background = "#f38ba8" }
+
+[scrolling]
+history = 10000
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_interval = 500
+blink_timeout = 10
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
 
 [[keyboard.bindings]]
 key = "V"
@@ -83,6 +97,11 @@ mods = "Control|Shift"
 action = "CreateNewWindow"
 
 [[keyboard.bindings]]
+key = "W"
+mods = "Control|Shift"
+action = "Quit"
+
+[[keyboard.bindings]]
 key = "Plus"
 mods = "Control"
 action = "IncreaseFontSize"
@@ -97,20 +116,45 @@ key = "0"
 mods = "Control"
 action = "ResetFontSize"
 
-[scrolling]
-history = 10000
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+action = "ToggleFullscreen"
 
-[cursor]
-# Cursor style: Block (default), Underline, or Beam
-style = { shape = "Block", blinking = "On" }
+[[keyboard.bindings]]
+key = "PageUp"
+mods = "Shift"
+action = "ScrollPageUp"
 
-# Blink interval in milliseconds (faster = more animated; default 750)
-blink_interval = 500
+[[keyboard.bindings]]
+key = "PageDown"
+mods = "Shift"
+action = "ScrollPageDown"
 
-# Time after which blinking stops (seconds; 0 = never stop)
-blink_timeout = 10
+[[keyboard.bindings]]
+key = "Home"
+mods = "Shift"
+action = "ScrollToTop"
 
-[env]
-TERM = "xterm-256color"  # Ensures compatibility with most tools
+[[keyboard.bindings]]
+key = "End"
+mods = "Shift"
+action = "ScrollToBottom"
 
-# import = ["~/.config/alacritty/themes/catppuccin.yml"]
+[[keyboard.bindings]]
+key = "F"
+mods = "Control"
+action = "SearchForward"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Control"
+action = "SearchBackward"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Shift"
+action = "SpawnNewInstance"
+
+[debug]
+print_events = false

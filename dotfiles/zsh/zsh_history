@@ -1,0 +1,71 @@
+ls
+fastfetch
+fucku
+flatpak update
+exit
+git clone
+exit
+paru -Syu
+paru -Rns
+sudo pacman -Syu
+sudo pacman -Syyu
+sudo pacman -Syu --noconfirm
+sudo pacman -Syu --noconfirm --needed
+ff
+x
+m
+hx
+helix
+tmux
+cd
+fzf
+yazi
+tmux attach
+ip addr
+ifconfig
+ping 1.1.1.1
+time
+uptime
+systemd-analyze
+date
+cal
+calender
+uptime
+$SHELL
+fish
+fzf
+hx
+bash 1.sh
+python3 1.py
+go run
+flatpak list
+flatpak search
+sudo pacman -Qs git
+pacman -Qs git
+ollama list
+sudo systemctl start ollama
+sudo systemctl stop ollama
+fastfetch
+fastfetc
+timeshift --help
+timeshift --create
+sudo timeshift --create
+exit
+ls
+m
+ks
+ls
+ping 1.1.1.1
+ls
+x
+paru -Rns yazi
+exit
+m
+hx
+ls
+fastfetch
+fzf
+cat .zshrc
+cat .zshrc
+fastfetch
+exit

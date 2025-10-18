@@ -33,7 +33,7 @@ sudo reflector --country 'United States,India,Singapore' --latest 20 --protocol 
 
 ### **Core Tools**
 ```bash
-sudo pacman -S --needed git base-devel fwupd curl rsync wget zip unzip man power-profiles-daemon amd-ucode htop fastfetch partitionmanager vulkan-radeon linux-headers linux-lts linux-lts-headers xdg-desktop-portal-kde flatpak firewalld fish kwalletmanager kdeconnect kcalc filelight
+sudo pacman -S --needed git base-devel fwupd curl rsync wget zip unzip man power-profiles-daemon amd-ucode htop fastfetch partitionmanager vulkan-radeon linux-headers linux-lts linux-lts-headers xdg-desktop-portal-kde flatpak firewalld fish kwalletmanager kdeconnect kcalc filelight zsh
 ```
 
 ### **Development**
@@ -43,7 +43,7 @@ sudo pacman -S --needed go rust zed
 
 ### **Desktop Apps**
 ```bash
-sudo pacman -S --needed okular ark syncthing kamoso gwenview p7zip unrar virtualbox chromium vlc telegram-desktop timeshift
+sudo pacman -S --needed okular ark syncthing kamoso gwenview p7zip unrar virtualbox chromium vlc telegram-desktop timeshift fzf zsh-syntax-highlighting zsh-autosuggestions
 ```
 
 ---

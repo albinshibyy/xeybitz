@@ -1,5 +1,8 @@
 function fish_greeting
     echo "Welcome User, Session Logged"
-    fastfetch
 end
 alias hx helix
+alias fucku 'paru -Syu'
+alias ff fastfetch
+alias x helix
+alias m tmux
